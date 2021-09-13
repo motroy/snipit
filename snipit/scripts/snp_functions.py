@@ -413,14 +413,21 @@ def make_graph(num_seqs,num_snps,amb_dict,snp_records,output,label_map,colour_di
 
 def get_colours(colour_palette):
     #nucleotides
-    palettes = {"classic": {"A":"steelblue","C":"indianred","T":"darkseagreen","G":"skyblue"},
-                "wes": {"A":"#CC8B3C","C":"#456355","T":"#541F12","G":"#B62A3D"}, 
-                "primary": {"A":"green","C":"goldenrod","T":"steelblue","G":"indianred"},
-                "purine-pyrimidine":{"A":"indianred","C":"teal","T":"teal","G":"indianred"},
-                "greyscale":{"A":"#CCCCCC","C":"#999999","T":"#666666","G":"#333333"},
-                "blues":{"A":"#3DB19D","C":"#76C5BF","T":"#423761","G":"steelblue"},
-                "verity":{"A":"#EC799A","C":"#df6eb7","T":"#FF0080","G":"#9F0251"}
-                }
+    #palettes = {"classic": {"A":"steelblue","C":"indianred","T":"darkseagreen","G":"skyblue"},
+    #            "wes": {"A":"#CC8B3C","C":"#456355","T":"#541F12","G":"#B62A3D"}, 
+    #            "primary": {"A":"green","C":"goldenrod","T":"steelblue","G":"indianred"},
+    #            "purine-pyrimidine":{"A":"indianred","C":"teal","T":"teal","G":"indianred"},
+    #            "greyscale":{"A":"#CCCCCC","C":"#999999","T":"#666666","G":"#333333"},
+    #            "blues":{"A":"#3DB19D","C":"#76C5BF","T":"#423761","G":"steelblue"},
+    #            "verity":{"A":"#EC799A","C":"#df6eb7","T":"#FF0080","G":"#9F0251"}
+    #            }
+    #amino acids
+    palettes = {"clustal2": {"A":"#80a0f0","R":"#f01505","N":"#00ff00","D":"#c048c0","C":"#f08080",
+                             "Q":"#00ff00","E":"#c048c0","G":"#f09048","H":"#15a4a4","I":"#80a0f0",
+                             "L":"#80a0f0","K":"#f01505","M":"#80a0f0","F":"#80a0f0","P":"#ffff00",
+                             "S":"#00ff00","T":"#00ff00","W":"#80a0f0","Y":"#15a4a4","V":"#80a0f0",
+                             "B":"#fff","X":"#fff","Z":"#fff"}
+               }
     if colour_palette not in palettes:
         sys.stderr.write(red(f"Error: please select one of {palettes} for --colour-palette option\n"))
         sys.exit(-1)
