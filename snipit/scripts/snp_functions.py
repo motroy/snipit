@@ -148,8 +148,10 @@ def get_ref_and_alignment(input_file,reference,label_map):
     return reference_seq, input_seqs
 
 def find_snps(reference_seq,input_seqs):
-
-    non_amb = ["A","T","G","C"]
+    #nucleotides
+    #non_amb = ["A","T","G","C"]
+    #amino acids
+    non_amb = ["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
     snp_dict = {}
     record_snps = {}
     snp_counter = collections.Counter()
@@ -189,7 +191,10 @@ def find_ambiguities(alignment, snp_dict):
         for i in snp_sites:
             bases = [query_seq[i],snp_sites[i]]
             if bases[0] != bases[1]:
-                if bases[0] not in ["A","T","G","C"]:
+                #nucleotides
+                #if bases[0] not in ["A","T","G","C"]:
+                #amino acids
+                if bases[0] not in ["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]:
                     
                     snp = f"{i+1}{bases[1]}{bases[0]}" # position-outgroup-query
                     snps.append(snp)
@@ -407,7 +412,7 @@ def make_graph(num_seqs,num_snps,amb_dict,snp_records,output,label_map,colour_di
     plt.savefig(output)
 
 def get_colours(colour_palette):
-    
+    #nucleotides
     palettes = {"classic": {"A":"steelblue","C":"indianred","T":"darkseagreen","G":"skyblue"},
                 "wes": {"A":"#CC8B3C","C":"#456355","T":"#541F12","G":"#B62A3D"}, 
                 "primary": {"A":"green","C":"goldenrod","T":"steelblue","G":"indianred"},
